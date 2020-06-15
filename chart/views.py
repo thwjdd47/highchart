@@ -9,9 +9,10 @@ def home(request):
     return render(request, 'home.html')
 
 
-def world_population(request):
-    return render(request, 'world_population.html')
-
+# def world_population(request):
+#     return render(request, 'world_population.html')
+def covid(request):
+    return render(request, 'covid_chart.html')
 
 def ticket_class_view_1(request):  # 방법 1
     dataset = Passenger.objects \

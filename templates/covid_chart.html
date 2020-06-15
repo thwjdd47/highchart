@@ -1,0 +1,88 @@
+<!--templates/ticket_class_2.html-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>코비드-19 하이차트</title>
+</head>
+<body>
+    <a href="{% url 'home' %}">Return to homepage</a>
+    <div id="container"></div>
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script>
+      Highcharts.chart('container', {
+
+          title: {
+            text: 'COVID-19 확진자 발생율(인구 백 만명 당 기준)'
+          },
+
+          subtitle: {
+            text: 'Source: Johns Hopkins University Center for Systems Science and Engineering'
+          },
+
+          yAxis: {
+            title: {
+              text: '합계 건수'
+            }
+          },
+
+          xAxis: {
+            categories: ['3.Feb', '17.Feb', '2.Mar', '16.Mar', '30.Mar',
+                        '13.Apr', '27.Apr', '11.May', '25.May', '8.Jun'],
+          },
+
+          legend: {
+            layout: 'horizontal',
+            align: 'center',
+            verticalAlign: 'bottom'
+          },
+
+          plotOptions: {
+            series: {
+              label: {
+                connectorAllowed: false
+              },
+              pointStart: 0
+            }
+          },
+
+          series: [{
+            name: 'France',
+            data: [0.0919209, 0.1838418, 2.92614871, 102.384565, 692.01119, 1921.05493, 2542.57811, 2720.04673, 2804.61396, 2930.94392]
+            }, {
+            name: 'Germany',
+            data: [0.14322554, 0.19096738, 1.89773835, 86.7946748, 798.303331, 1552.46933, 1894.84997, 2059.77417, 2155.54432, 2221.29677]
+          }, {
+            name: 'Korea, South',
+            data: [0.2925734, 0.585146881, 84.5537139, 160.642304, 188.436777, 205.523064, 209.716616, 213.305517, 218.942431, 231.171999]
+          }, {
+            name: 'US',
+            data: [0.03323236, 0.03927461, 0.16011956, 13.1720999, 491.506638, 1757.72006, 2993.91258, 4087.46575, 5045.90823, 5926.78335]
+          }, {
+            name: 'United Kingdom',
+            data: [0.02946115, 0.13257518, 0.58922301, 22.8471224, 330.745608, 1319.41763, 2266.44984, 3304.53943, 3867.46837, 4254.691]
+          }],
+
+          responsive: {
+            rules: [{
+              condition: {
+                maxWidth: 100
+              },
+              chartOptions: {
+                legend: {
+                  layout: 'horizontal',
+                  align: 'center',
+                  verticalAlign: 'bottom'
+                }
+              }
+            }]
+          }
+
+        });
+    </script>
+</body>
+</html>
